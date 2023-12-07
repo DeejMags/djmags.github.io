@@ -11,11 +11,48 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <style>
-
         .progress-container {
             margin-top: 2rem;
+            color: white;
         }
     </style>
+
+    <script>
+        $(document).ready(function () {
+            var progressValue = 50;
+
+            $(".progress-bar").css("width", progressValue + "%").text(progressValue + "%");
+
+            $("#btn0").click(function () {
+                progressValue = 0;
+                updateProgressBar();
+            });
+
+            $("#btn25").click(function () {
+                progressValue = 25;
+                updateProgressBar();
+            });
+
+            $("#btn50").click(function () {
+                progressValue = 50;
+                updateProgressBar();
+            });
+
+            $("#btn75").click(function () {
+                progressValue = 75;
+                updateProgressBar();
+            });
+
+            $("#btn100").click(function () {
+                progressValue = 100;
+                updateProgressBar();
+            });
+
+            function updateProgressBar() {
+                $(".progress-bar").css("width", progressValue + "%").text(progressValue + "%");
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -23,13 +60,24 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-4">Activity 2</h1>
-            <p class="lead">This activity involves Bootstrap, jQuery, and a progress bar with event handlers.</p>
+            <p class="lead">
+                This activity involves Bootstrap, jQuery, and a progress bar with event handlers. Bootstrap provides a sleek and responsive design, while jQuery adds dynamic behavior to the progress bar.
+            </p>
             <hr class="my-4">
-            <p>More details and features can be added here.</p>
+            <p>
+                You can interact with the progress bar using the buttons below. Experiment with different percentages to see how the progress bar dynamically updates.
+            </p>
             <div class="progress-container">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
+            </div>
+            <div class="btn-group mt-3" role="group" aria-label="Progress Buttons">
+                <button type="button" id="btn0" class="btn btn-secondary">0%</button>
+                <button type="button" id="btn25" class="btn btn-secondary">25%</button>
+                <button type="button" id="btn50" class="btn btn-secondary">50%</button>
+                <button type="button" id="btn75" class="btn btn-secondary">75%</button>
+                <button type="button" id="btn100" class="btn btn-secondary">100%</button>
             </div>
         </div>
     </div>

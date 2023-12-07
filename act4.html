@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity 1 - Bootstrap and jQuery</title>
+    <title>Activity 4 - Bootstrap and jQuery</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <style>
-
         .jumbotron {
             background-color: #f8f9fa;
             padding: 2rem 1rem;
@@ -29,17 +28,61 @@
             border-color: #0056b3;
         }
     </style>
+
+    <script>
+        $(document).ready(function () {
+            function addTableRow() {
+                var newRow = '<tr><td>New Row</td><td>Column 1</td><td>Column 2</td><td><button class="btn btn-danger btn-sm deleteRowBtn">Delete</button></td></tr>';
+                $('#myTable').append(newRow);
+            }
+
+            function deleteTableRow() {
+                $(this).closest('tr').remove();
+            }
+
+            $('#addRowBtn').click(function () {
+                addTableRow();
+            });
+
+            // Event delegation for dynamically added delete buttons
+            $('#myTable').on('click', '.deleteRowBtn', deleteTableRow);
+        });
+    </script>
 </head>
 
 <body>
 
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-4">Activity 1</h1>
-            <p class="lead">This is a simple example using Bootstrap and jQuery.</p>
+            <h1 class="display-4">Activity 4</h1>
+            <p class="lead">This is a simple example using Bootstrap and jQuery for table rows and columns.</p>
             <hr class="my-4">
             <p>More details and features can be added here.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <table class="table" id="myTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Header 1</th>
+                        <th scope="col">Header 2</th>
+                        <th scope="col">Header 3</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1</td>
+                        <td>Column 1</td>
+                        <td>Column 2</td>
+                        <td><button class="btn btn-danger btn-sm deleteRowBtn">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Row 2</td>
+                        <td>Column 1</td>
+                        <td>Column 2</td>
+                        <td><button class="btn btn-danger btn-sm deleteRowBtn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-lg" id="addRowBtn" role="button">Add Row</button>
         </div>
     </div>
 

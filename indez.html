@@ -4,82 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your GitHub Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="logo" href="Initial Letter D Digital Logo Design Template.jpg">
+    <title>Final Project CIT14-2K</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
-
-        .logo {
-            max-width: 50px;
-            height: auto;
-            margin-right: 10px;
+        .social-section img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            transition: all 0.3s ease-in-out;
         }
 
+        .social-section a:hover img {
+            transform: scale(1.2);
+        }
 
+        .social-section a {
+            display: inline-block;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="Luffy icon _ One piece ep, Luffy, One piece photos.jpg" alt="Profile Picture" class="img-fluid mt-3 mb-3">
+                <div class="social-section">
+                    <h2>Social Media Accounts</h2>
+                    <p><a href="https://www.facebook.com/" target="_blank"><img src="facebook-icon-ios-facebook-social-media-logo-on-white-background-free-free-vector.jpg" alt="Facebook"></a></p>
+                    <p><a href="https://www.instagram.com/" target="_blank"><img src="logo_instagram.png" alt="Instagram"></a></p>
+                    <p><a href="https://twitter.com/home" target="_blank"><img src="x-logo-twitter-elon-musk_dezeen_2364_col_0.webp" alt="Twitter"></a></p>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="github-section">
+                    <h1>DeejMags The Programmer</h1>
+                    <p>Geek Web Developer &bull; Weeb</p>
+                    <h2>Github About Me</h2>
+                </div>
 
-    <header>
-        <img src="your_profile_pic_url" alt="Profile Picture" class="profile-pic">
-        <h1>Your Name</h1>
-        <p>GitHub Portfolio</p>
-        <div class="social-icons">
-            <a href="your_facebook_link" target="_blank"><img src="facebook_logo_url" alt="Facebook Logo" class="logo"></a>
-            <a href="your_twitter_link" target="_blank"><img src="twitter_logo_url" alt="Twitter Logo" class="logo"></a>
-            <a href="your_instagram_link" target="_blank"><img src="instagram_logo_url" alt="Instagram Logo" class="logo"></a>
+                <div class="portfolio-section">
+                    <h2>Programmer Portfolio</h2>
+
+                    <div class="activity">
+                        <h3>Activity 1</h3>
+                        <p>Bootstrap + jQuery - Midterm Exam</p>
+                        <a href="act1.html" class="btn btn-primary">Visit Project</a>
+                    </div>
+
+                    <div class="activity">
+                        <h3>Activity 2</h3>
+                        <p><PROGRAMMING PORTFOLIO> - Progress Bars with buttons and event handlers</p>
+                        <a href="act2.html" class="btn btn-primary">Visit Project</a>
+                    </div>
+
+                    <div class="activity">
+                        <h3>Activity 3</h3>
+                        <p>Bootstrap + jQuery - Registration Form</p>
+                        <a href="act3.html" class="btn btn-primary">Visit Project</a>
+                    </div>
+
+                    <div class="activity">
+                        <h3>Activity 4</h3>
+                        <p>Table Rows and Columns - Details</p>
+                        <a href="act4.html" class="btn btn-primary">Visit Project</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
-
-    <nav>
-        <a href="#bio">Bio</a>
-        <a href="#projects">Projects</a>
-    </nav>
-
-    <section id="bio">
-        <h2>Bio</h2>
-        <p>
-            Write a brief introduction about yourself, your skills, and your passion for coding.
-        </p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Project 1 - Activity 1</h3>
-            <p class="project-details">Description of Project 1. Uses Bootstrap and jQuery.</p>
-            <a href="act1.html">View Project</a>
-        </div>
-
-        <div class="project">
-            <h3>Project 2 - Activity 2</h3>
-            <p class="project-details">Description of Project 2. Uses Bootstrap, jQuery, and a progress bar with event handlers.</p>
-            <a href="act2.html">View Project</a>
-        </div>
-
-        <div class="project">
-            <h3>Project 3 - Activity 3</h3>
-            <p class="project-details">Description of Project 3. Uses Bootstrap, jQuery, and a registration form.</p>
-            <a href="act3.html">View Project</a>
-        </div>
-
-        <div class="project">
-            <h3>Project 4 - Activity 4</h3>
-            <p class="project-details">Description of Project 4. Uses Bootstrap and jQuery to create table rows and columns.</p>
-            <a href="act4.html">View Project</a>
-        </div>
-
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-    </footer>
-
+    </div>
 </body>
 
 </html>
