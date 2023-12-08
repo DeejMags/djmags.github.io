@@ -10,6 +10,18 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url("wallpaperflare.com_wallpaper.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,31 +29,93 @@
     <div class="container">
         <h1 class="mt-5">Midterm Exam</h1>
 
-        <form>
+        <form id="examForm">
             <div class="mb-4">
-                <p><strong>1. What is the capital of France?</strong> (2 points)</p>
+                <p><strong>1. What does HTML stand for?</strong> (2 points)</p>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
-                    <label class="form-check-label" for="q1a">a) Berlin</label>
+                    <label class="form-check-label" for="q1a">a) Hypertext Markup Language</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
-                    <label class="form-check-label" for="q1b">b) Madrid</label>
+                    <label class="form-check-label" for="q1b">b) Hay Math lagi</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
-                    <label class="form-check-label" for="q1c">c) Paris</label>
+                    <label class="form-check-label" for="q1c">c) Hypertext Mark2 Language?</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1d" value="d">
-                    <label class="form-check-label" for="q1d">d) Rome</label>
+                    <label class="form-check-label" for="q1d">d) None of the above</label>
                 </div>
             </div>
 
+            <div class="mb-4">
+                <p><strong>2. What is the capital of France?</strong> (3 points)</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
+                    <label class="form-check-label" for="q2a">a) Paris</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
+                    <label class="form-check-label" for="q2b">b) Berlin</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
+                    <label class="form-check-label" for="q2c">c) Madrid</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q2" id="q2d" value="d">
+                    <label class="form-check-label" for="q2d">d) Rome</label>
+                </div>
+            </div>
 
-            <button type="submit" class="btn btn-primary">Submit Exam</button>
+            <div class="mb-4">
+                <p><strong>3. Who is the CEO of Microsoft?</strong> (5 points)</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
+                    <label class="form-check-label" for="q3a">a) Tim Cook</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
+                    <label class="form-check-label" for="q3b">b) Jeff Bezos</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
+                    <label class="form-check-label" for="q3c">c) Satya Nadella</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q3" id="q3d" value="d">
+                    <label class="form-check-label" for="q3d">d) Mark Zuckerberg</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit Exam</button>
         </form>
+
+        <div id="result" class="mt-4"></div>
     </div>
+
+    <script>
+        function calculateScore() {
+            const correctAnswers = {
+                q1: 'a',
+                q2: 'a',
+                q3: 'c'
+            };
+
+            let score = 0;
+
+            for (const question in correctAnswers) {
+                const selectedAnswer = $('input[name=' + question + ']:checked').val();
+                if (selectedAnswer === correctAnswers[question]) {
+                    score += 1;
+                }
+            }
+
+            $('#result').html('<h4>Your Total Score: ' + score + ' out of ' + Object.keys(correctAnswers).length + '</h4>');
+        }
+    </script>
 
 </body>
 
