@@ -1,94 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="logo" href="Initial Letter D Digital Logo Design Template.jpg">
-    <title>Activity 3 - Bootstrap and jQuery Registration Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <title>Welcome Card with Registration</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body{
-            background-image: url("wallpaperflare.com_wallpaper.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+          background-image: url("wallpaperflare.com_wallpaper.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
         }
-        .jumbotron {
-            background-color: #f8f9fa;
-            padding: 2rem 1rem;
-            margin-bottom: 2rem;
-            border-radius: 0.3rem;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+        .registration-btn {
+            display: block;
+            margin: 0 auto;
+            width: 500px; 
         }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+        .line {
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .modal {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .card {
+            max-width: 600px; 
+            margin: 0 auto;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .modal-dialog {
+            max-width: 600px; 
+        }
+
+        .modal-content {
+            margin: 0 auto;
         }
     </style>
-
-    <script>
-        $(document).ready(function () {
-            $("#registrationForm").submit(function (event) {
-                var isValid = true;
-
-                $(".form-control").each(function () {
-                    if (!$(this).val()) {
-                        isValid = false;
-                        $(this).addClass("is-invalid");
-                    } else {
-                        $(this).removeClass("is-invalid");
-                    }
-                });
-
-                if (!isValid) {
-                    event.preventDefault();
-                }
-            });
-        });
-    </script>
 </head>
-
 <body>
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">Registration Form</h1>
-            <form id="registrationForm">
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
-                    <div class="invalid-feedback">Please enter your first name.</div>
+<div class="container mt-5">
+    <div class="card" id="registrationCard">
+        <div class="card-body text-left">
+            <h5 class="card-title">Welcome Card</h5>
+
+            <div class="line"></div>
+
+            <p>Welcome to this website! <br>
+                Register user here!</p>
+
+            <button type="button" class="btn btn-primary registration-btn" data-toggle="modal" data-target="#registrationModal">Register</button>
+
+            <div class="modal" id="registrationModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Register</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="registrationForm">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="section">Section:</label>
+                                    <input type="text" class="form-control" id="section" placeholder="Enter your section" required>
+                                </div>
+                                <div class="text-danger" id="error-message" style="display: none;">Please enter both name and section.</div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="validateAndShowWelcome()">Save Changes</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
-                    <div class="invalid-feedback">Please enter your last name.</div>
+            </div>
+            
+            <div class="modal" id="welcomeOutputModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Welcome Card</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p style="text-align: center;">You have successfully registered!</p>
+                            <div id="welcomeMessage" class="text-center">
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    <span id="outputName"></span>
+                                    |
+                                    <span class="text-primary">Section: <span id="outputSection"></span></span>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                    <div class="invalid-feedback">Please enter a password.</div>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
     </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    function validateAndShowWelcome() {
+        var name = document.getElementById("name").value;
+        var section = document.getElementById("section").value;
+
+        if (name === "" || section === "") {
+            document.getElementById("error-message").style.display = "block";
+            return;
+        }
+
+        document.getElementById("error-message").style.display = "none";
+
+        document.getElementById("outputName").innerText = name;
+        document.getElementById("outputSection").innerText = section;
+
+        $('#registrationModal').modal('hide');
+
+        $('#welcomeOutputModal').modal('show');
+    }
+</script>
 
 </body>
-
 </html>
