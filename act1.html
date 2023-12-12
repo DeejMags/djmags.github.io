@@ -1,144 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="logo" href="Initial Letter D Digital Logo Design Template.jpg">
-    <title>jQuery Activity</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-</head>
-
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Onest:wght@600&family=Young+Serif&display=swap" rel="stylesheet">
+    <title>Grading System</title>
     <style>
         body {
-            margin-top: 10px;
-            background-image: url("wallpaperflare.com_wallpaper.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            font-family: "Young Serif";
+            background-color: black;
         }
-
-        input {
-            margin: 5px;
-        }
-
-        td {
-            text-align: center;
-            border: 1px solid #000; 
-            padding: 8px; 
-        }
-
-        th {
-            border: 1px solid #000;
-            padding: 8px;
-        }
-
-        .btn-wrap {
-            position: relative;
-            left: 70px;
-        }
-
-        .table-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-column-gap: 20px;
-            width: 50%;
-            margin: auto;
-        }
-
-        #user-col,
-        #result-col {
-            border: 1px solid #000; /* Add border to table columns */
-            padding: 10px;
-            background-color: #fff; /* Set background color to white */
-        }
-
-        #btnSubmit {
-            background-color: #0a66c2;
-            border: 0;
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: white;
+            border: solid;
             border-radius: 10px;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 600;
-            min-height: 40px;
-            padding: 0px 20px;
             text-align: center;
-            transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2,
-                    1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background-color: darkgreen;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+         }
+        .btn:hover {
+            background-color: black;
         }
     </style>
-
-    <div id="table-wrap" class="table-wrap">
-        <div id="user-col">
-            <div class="user-title"><strong>Enter a record</strong></div>
-            <form id="userForm">
-                <label for="userName"><strong>Name:</strong></label><br />
-                <input type="text" id="userName" autocomplete="off" required /><br />
-                <label for="userCourse"><strong>Course:</strong></label><br />
-                <input type="text" id="userCourse" autocomplete="off" required /><br />
-                <label for="userSection"><strong>Section:</strong></label><br />
-                <input type="text" id="userSection" autocomplete="off" required /><br />
-                <div class="btn-wrap">
-                    <button id="btnSubmit" class="recordBtn btn-primary">Save Record</button>
-                </div>
-            </form>
-        </div>
-        <div id="result-col">
-            <table class="table">
-                <div class="table-title" style="text-align: center"><strong>Records</strong></div>
-                <thead>
-                    <tr>
-                        <th scope="col"><strong>Name</strong></th>
-                        <th scope="col"><strong>Course</strong></th>
-                        <th scope="col"><strong>Section</strong></th>
-                        <th scope="col"><strong>Actions</strong></th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+</head>
+<body>
+    <div class="container">
+        <h1>Grading Calculator</h1>
+        <form id="gradeForm">
+            <div class="form-group">
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="section">Section:</label>
+                <input type="text" id="section" name="section" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year Level:</label>
+                <input type="number
+                " id="year" name="year" min="1" max="6" required>
+            </div>
+            <div class="form-group">
+                <label for="grade1">1st Grade:</label>
+                <input type="number" id="grade1" name="grade1" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="grade2">2nd Grade:</label>
+                <input type="number" id="grade2" name="grade2" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="grade3">3rd Grade:</label>
+                <input type="number" id="grade3" name="grade3" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="grade4">4th Grade:</label>
+                <input type="number" id="grade4" name="grade4" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="grade5">5th Grade:</label>
+                <input type="number" id="grade5" name="grade5" min="0" max="100" required>
+            </div>
+            <button type="submit" class="btn">SUBMIT</button>
+        </form>
+        <div id="result"></div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#btnSubmit").click(function () {
-                var Name = $("#userName").val();
-                var Course = $("#userCourse").val();
-                var Section = $("#userSection").val();
-                var Inputs = Name && Course && Section;
-
-                if (Inputs == "") {
-                    console.log("Error");
-                } else {
-                    $("tbody").append(
-                        "<tr><td>" +
-                        Name +
-                        "</td>" +
-                        "<td>" +
-                        Course +
-                        "</td>" +
-                        "<td>" +
-                        Section +
-                        "</td>" +
-                        '<td><button class="btn btn-danger delete-btn">Delete</button></td></tr>'
-                    );
-                    $("#userForm")[0].reset();
-                }
-            });
-
-            $("tbody").on("click", ".delete-btn", function () {
-                $(this).closest("tr").remove();
-            });
+         document.getElementById('gradeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let name = document.getElementById('name').value;
+            let section = document.getElementById('section').value;
+            let year = document.getElementById('year').value;
+            let grades = [
+                parseInt(document.getElementById('grade1').value),
+                parseInt(document.getElementById('grade2').value),
+                parseInt(document.getElementById('grade3').value),
+                parseInt(document.getElementById('grade4').value),
+                parseInt(document.getElementById('grade5').value)
+            ];
+            let average = calculateAverage(grades);
+            let result = document.getElementById('result');
+            result.innerHTML = `
+                <h2>${name}'s Grade</h2>
+                <p>Section: ${section}</p>
+                <p>Year Level: ${year}</p>
+                <p>Average Grade: ${average.toFixed(2)}</p>
+                <p>Status: ${getStatus(average)}</p>
+            `;
         });
+
+        function calculateAverage(grades) {
+            let sum = grades.reduce((a, b) => a + b, 0);
+            return sum / grades.length;
+        }
+
+        function getStatus(average) {
+            if (average >= 90) {
+                return 'With Honors';
+            } else if (average >= 75) {
+                return 'PASSED';
+            } else {
+                return 'FAILED';
+            }
+        }
     </script>
 </body>
-
 </html>
